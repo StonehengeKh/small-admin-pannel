@@ -9,6 +9,8 @@ import HomePage from '../pages/HomePage';
 import UserPage from '../pages/UserPage';
 import NotePage from '../pages/NotePage';
 import ErrorPage from '../pages/ErrorPage';
+import TrackerPage from '../pages/TrackerPage';
+import ListPage from '../pages/ListPage';
 
 function Router() {
   return (
@@ -16,6 +18,8 @@ function Router() {
       <ConnectedRouter history={history}>
         <Switch>
           <Route path="/" component={HomePage} exact />
+          <Route path="/tracker/" component={TrackerPage} />
+          <Route path="/list/" component={ListPage} />
           <Route path="/user/:id" component={UserPage} />
           <Route path="/note/:id" component={NotePage} />
           <Route component={ErrorPage} />

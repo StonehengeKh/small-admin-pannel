@@ -35,3 +35,12 @@ export type Post = {
 };
 
 export type Posts = Post[];
+
+export type Project = {
+  id: string;
+  userId: number;
+  title: string;
+  time: number;
+};
+
+export type Projects = Project[];

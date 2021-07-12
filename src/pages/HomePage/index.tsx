@@ -1,37 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import useUsers from './hooks/useUsers';
 import useRouter from '../../hooks/useRouter';
 
 const HomePage = () => {
-  const { getUsers, users } = useUsers();
   const { push } = useRouter();
 
-  const choiceUser = (id: number) => push(`/user/${id}`);
-
-  useEffect(() => {
-    getUsers();
-  }, []);
-
-  const onSelectUser = (event: any) => {
-    const userId = event.target.value;
-    if (!!userId) {
-      choiceUser(userId);
-    }
-  };
+  const choicePage = (page: string) => () => push(`/${page}`);
 
   return (
     <>
-      <h4>Choice a user</h4>
-      <select onChange={onSelectUser}>
-        <option value={''}>---</option>
-        {users &&
-          users.map(({ id, name }) => (
-            <option key={id} value={id}>
-              {name}
-            </option>
-          ))}
-      </select>
+      <h4>Home page</h4>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '50%' }}>
+        <span style={{cursor: 'pointer'}} onClick={choicePage('list')}>Go to the list</span>
+        &nbsp;
+        <span style={{cursor: 'pointer'}} onClick={choicePage('tracker')}>Go to the tracker</span>
+      </div>
     </>
   );
 };

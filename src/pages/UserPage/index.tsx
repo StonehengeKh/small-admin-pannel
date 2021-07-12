@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import BackBtn from '../../components/BackBtn';
-import useUsers from '../HomePage/hooks/useUsers';
+import useUsers from '../ListPage/hooks/useUsers';
 import NoteList from '../../components/NoteList';
 import usePosts from './hooks/usePosts';
 
